@@ -3,4 +3,4 @@
 3) .ipynb file contains the entire code for the multimodal rag in cell froamte and src folder contains the modular code for the multimodal rag
 4) run the python gradio_app.py to open the interactive interface to query on the indexed data.
 
-#Mutimodal-RAG
+# Mutimodal-RAG
