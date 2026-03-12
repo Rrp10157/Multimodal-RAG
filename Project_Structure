@@ -1,0 +1,40 @@
+Multimodal-RAG/
+│
+├── README.md                          # Project documentation
+├── requirements.txt                   # Python dependencies
+├── setup.py                          # Package setup (optional)
+│
+├── src/                              # Source code modules
+│   ├── __init__.py
+│   ├── document_processor.py          # PDF processing & chunking
+│   ├── embedder.py                   # Embedding generation
+│   ├── retriever.py                  # Retrieval logic
+│   ├── qa_engine.py                  # QA functionality
+│   ├── config.py                     # Configuration settings
+│   └── utils.py                      # Utility functions
+│
+├── data/                             # Data directory
+│   ├── input/                        # Input documents
+│   └── processed/                    # Processed data
+│
+├── models/                           # Pre-trained models
+│   └── embeddings/                   # Embedding models
+│
+├── chroma_rag_modular_dense/         # Vector store (modular approach)
+├── chroma_rag_final_dense/           # Vector store (final approach)
+│
+├── gradio_app.py                     # Gradio interface
+├── app.py                            # Flask API (optional)
+├── RAG_updated_clean.ipynb           # Jupyter notebook
+│
+├── tests/                            # Unit tests
+│   ├── test_document_processor.py
+│   ├── test_embedder.py
+│   └── test_retriever.py
+│
+├── docs/                             # Additional documentation
+│   ├── ARCHITECTURE.md
+│   ├── API_GUIDE.md
+│   └── TROUBLESHOOTING.md
+│
+└── logs/                             # Application logs
