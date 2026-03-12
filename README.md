@@ -1,4 +1,4 @@
-# Mutimodal-RAG
+# Mutimodal-RAG (Setup Instructions)
 
 ## Overview
 Multimodal-RAG is a repository designed for utilizing multimodal retrieval-augmented generation (RAG) techniques to query complex layout unstructured data.
