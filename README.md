@@ -4,3 +4,6 @@
 4) run the python gradio_app.py to open the interactive interface to query on the indexed data.
 
 # Mutimodal-RAG
+
+## Overview
+Multimodal-RAG is a repository designed for utilizing multimodal retrieval-augmented generation (RAG) techniques to query complex layout unstructured data.
