@@ -24,3 +24,5 @@ Multimodal-RAG is a repository designed for utilizing multimodal retrieval-augme
 - python gradio_app.py
 
 
+## Note:
+- you can configure the pdf path and database and other things in the configer file of the scr/modular_rag file.
