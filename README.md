@@ -16,7 +16,7 @@ Multimodal-RAG is a repository designed for utilizing multimodal retrieval-augme
 
 ## Qucik Start
 
-- git clone 
+- git clone https://github.com/Rrp10157/Multimodal-RAG.git
 - cd Multimodal-RAG
 - py -3.12 -m venv myvenv
 - source myvenv\bin\activate
