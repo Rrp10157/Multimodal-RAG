@@ -1,40 +1,40 @@
 Multimodal-RAG/
-│
-├── README.md                          # Project documentation
-├── requirements.txt                   # Python dependencies
-├── setup.py                          # Package setup (optional)
-│
-├── src/                              # Source code modules
-│   ├── __init__.py
-│   ├── document_processor.py          # PDF processing & chunking
-│   ├── embedder.py                   # Embedding generation
-│   ├── retriever.py                  # Retrieval logic
-│   ├── qa_engine.py                  # QA functionality
-│   ├── config.py                     # Configuration settings
-│   └── utils.py                      # Utility functions
-│
-├── data/                             # Data directory
-│   ├── input/                        # Input documents
-│   └── processed/                    # Processed data
-│
-├── models/                           # Pre-trained models
-│   └── embeddings/                   # Embedding models
-│
-├── chroma_rag_modular_dense/         # Vector store (modular approach)
-├── chroma_rag_final_dense/           # Vector store (final approach)
-│
-├── gradio_app.py                     # Gradio interface
-├── app.py                            # Flask API (optional)
-├── RAG_updated_clean.ipynb           # Jupyter notebook
-│
-├── tests/                            # Unit tests
-│   ├── test_document_processor.py
-│   ├── test_embedder.py
-│   └── test_retriever.py
-│
-├── docs/                             # Additional documentation
-│   ├── ARCHITECTURE.md
-│   ├── API_GUIDE.md
-│   └── TROUBLESHOOTING.md
-│
-└── logs/                             # Application logs
+
+├── .gitattributes
+├── .gitignore
+├── app.py
+|
+├── chroma_rag_final_dense/                      (# This is the vector database corresponed to .ipynb file)
+│   ├── 152b249d-c883-4757-8d65-1bfe52be63dd/
+│   │   ├── data_level0.bin
+│   │   ├── header.bin
+│   │   ├── length.bin
+│   │   └── link_lists.bin
+│   └── chroma.sqlite3
+├── chroma_rag_modular_dense/                 (# This is the vecotr database corresponed to .py file of the modular code)
+│   ├── 264c0e0e-047e-4661-acde-6b062cbc146a/
+│   │   ├── data_level0.bin
+│   │   ├── header.bin
+│   │   ├── index_metadata.pickle
+│   │   ├── length.bin
+│   │   └── link_lists.bin
+│   └── chroma.sqlite3
+├── Economic Survey.pdf                   
+├── gradio_app.py
+├── Project_Structure
+├── RAG_updated_clean.ipynb    (# This file contains the RAG pipeline implementaition in the .ipynb formate)
+├── README.md
+├── requirements.txt
+|
+└── src/                      (#  This folder contains the modular code for the RAG Pipeline implementation)
+    └── modular_rag/
+        ├── __init__.py
+        ├── config.py
+        ├── document_processing.py
+        ├── Economic Survey.pdf               (# Dataset used for indexing)
+        ├── image_processing.py
+        ├── index_manager.py
+        ├── models.py
+        ├── pipeline.py
+        ├── rag_chain.py
+        └── retrieval.py
