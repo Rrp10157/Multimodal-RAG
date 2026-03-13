@@ -2,11 +2,11 @@ Multimodal-RAG/
 │
 ├── README.md                          # Project documentation
 ├── requirements.txt                   # Python dependencies
-├── setup.py                          # Package setup (optional)
+|                     
 │
 ├── src/                              # Source code modules
 │   ├── __init__.py
-│   ├── document_processor.py          # PDF processing & chunking
+│   ├── document_processing.py          # PDF processing & chunking
 │   ├── embedder.py                   # Embedding generation
 │   ├── retriever.py                  # Retrieval logic
 │   ├── qa_engine.py                  # QA functionality
