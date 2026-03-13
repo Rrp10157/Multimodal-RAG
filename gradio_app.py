@@ -41,8 +41,8 @@ def chat_response(message, history):
     return f"{answer}\n\nRetrieved context:\n{_format_context(docs)}"
 
 
-with gr.Blocks(title="IBM RAG Chat") as demo:
-    gr.Markdown("# IBM RAG Chat")
+with gr.Blocks(title="Multimodal RAG Chat Interface") as demo:
+    gr.Markdown("# Multimodal RAG Chat Interface")
     gr.ChatInterface(fn=chat_response)
 
 

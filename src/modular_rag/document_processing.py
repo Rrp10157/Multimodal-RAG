@@ -15,16 +15,48 @@ from modular_rag.image_processing import describe_image_smart
 logger = logging.getLogger(__name__)
 
 
-def convert_documents(sources: list[str]) -> dict:
-    converter = DocumentConverter(
+def _build_pdf_converter(
+    *,
+    generate_picture_images: bool,
+    images_scale: float,
+    ocr_batch_size: int,
+    layout_batch_size: int,
+    table_batch_size: int,
+    queue_max_size: int,
+) -> DocumentConverter:
+    return DocumentConverter(
         format_options={
             InputFormat.PDF: PdfFormatOption(
                 pipeline_options=PdfPipelineOptions(
                     do_ocr=False,
-                    generate_picture_images=True,
+                    generate_picture_images=generate_picture_images,
+                    images_scale=images_scale,
+                    ocr_batch_size=ocr_batch_size,
+                    layout_batch_size=layout_batch_size,
+                    table_batch_size=table_batch_size,
+                    queue_max_size=queue_max_size,
                 )
             )
         }
+    )
+
+
+def convert_documents(
+    sources: list[str],
+    generate_picture_images: bool = True,
+    images_scale: float = 0.6,
+    ocr_batch_size: int = 1,
+    layout_batch_size: int = 1,
+    table_batch_size: int = 1,
+    queue_max_size: int = 8,
+) -> dict:
+    converter = _build_pdf_converter(
+        generate_picture_images=generate_picture_images,
+        images_scale=images_scale,
+        ocr_batch_size=ocr_batch_size,
+        layout_batch_size=layout_batch_size,
+        table_batch_size=table_batch_size,
+        queue_max_size=queue_max_size,
     )
     out = {}
     for source in sources:
@@ -39,7 +71,13 @@ def extract_text_chunks(conversions: dict) -> list[Document]:
     try:
         from transformers import AutoTokenizer
 
-        tokenizer = AutoTokenizer.from_pretrained("sentence-transformers/all-MiniLM-L6-v2")
+        tokenizer = AutoTokenizer.from_pretrained(
+            "sentence-transformers/all-MiniLM-L6-v2",
+            local_files_only=True,
+        )
+        # HybridChunker uses this tokenizer for chunk sizing. Increase the limit to
+        # avoid long-input warnings from transformers during token counting.
+        tokenizer.model_max_length = 4096
     except Exception:
         tokenizer = None
 

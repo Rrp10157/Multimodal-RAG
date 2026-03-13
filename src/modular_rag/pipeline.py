@@ -47,7 +47,7 @@ def build_pipeline(pdf_sources: list[str] | None = None, skip_images: bool = Fal
     sources = pdf_sources or default_pdf_sources()
     embeddings_model, chat_model = load_models()
 
-    conversions = convert_documents(sources)
+    conversions = convert_documents(sources, generate_picture_images=not skip_images)
     if not conversions:
         raise RuntimeError("No documents converted. Verify PDF paths.")
 

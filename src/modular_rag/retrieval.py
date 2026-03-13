@@ -44,6 +44,12 @@ _expansion_chain = _expansion_prompt | _semantic_llm | StrOutputParser()
 def get_relevance_score(doc: Document) -> float | None:
     for key in ("relevance_score", "score", "rerank_score"):
         raw = doc.metadata.get(key)
+        # Flashrank often returns numpy scalar types (e.g. np.float32).
+        if hasattr(raw, "item"):
+            try:
+                raw = raw.item()
+            except Exception:
+                pass
         if isinstance(raw, (int, float)):
             return float(raw)
         if isinstance(raw, str):
