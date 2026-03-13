@@ -35,5 +35,5 @@ CONTEXT:
 
 def default_pdf_sources() -> list[str]:
     project_root = Path(__file__).resolve().parents[2]
-    local_pdf = project_root / "Dataset_removed-pages-deleted.pdf"
+    local_pdf = project_root / "Economic Survey.pdf"
     return [str(local_pdf.resolve())]
